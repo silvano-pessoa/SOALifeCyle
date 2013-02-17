@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:credito xmlns:tns="http://soaexpert.com.br/domain/model/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://soaexpert.com.br/domain/model/v1.0 DomainModel.xsd ">
+  <tns:empresa>
+    <tns:id>0</tns:id>
+    <tns:razaosocial>tns:razaosocial</tns:razaosocial>
+    <tns:nomeFantasia>tns:nomeFantasia</tns:nomeFantasia>
+    <tns:cnpj>tns:cnpj</tns:cnpj>
+    <tns:telefone>0</tns:telefone>
+  </tns:empresa>
+  <tns:serasa>true</tns:serasa>
+  <tns:spc>true</tns:spc>
+  <tns:casasBahia>true</tns:casasBahia>
+  <tns:aprovado>true</tns:aprovado>
+</tns:credito>

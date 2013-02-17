@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tns="http://service.soaexpert.com.br/EmpresaService/service/v1.0"  
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="EmpresaService" 
+	targetNamespace="http://service.soaexpert.com.br/EmpresaService/service/v1.0">
+	
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://service.soaexpert.com.br/EmpresaService/service/v1.0" xmlns:domainV1="http://soaexpert.com.br/domain/model/v1.0">
+
+    	<xsd:import schemaLocation="../Schemas/DomainModel.xsd" namespace="http://soaexpert.com.br/domain/model/v1.0"/>
+    	
+    	<xsd:element name="verificaCadastro">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="empresa" type="domainV1:Empresa" />
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="verificaCadastroResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="status" type="xsd:boolean" />
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+
+    	<xsd:element name="verificaCadastroFault">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="verificaCadastroFault"
+    					type="xsd:string">
+    				</xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+
+    	<xsd:element name="verificaCredito">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="empresa" type="domainV1:Empresa"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="verificaCreditoResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="credito" type="domainV1:Credito"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="verificaCreditoFault">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="verificaCreditoFault"
+    					type="xsd:string">
+    				</xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+
+    	<xsd:element name="rejeita">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="empresa" type="domainV1:Empresa"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="rejeitaEmpresaResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="out" type="xsd:string"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	
+    	<xsd:element name="aprovaEmpresa">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="empresa" type="domainV1:Empresa"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="aprovaEmpresaResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="out" type="xsd:string"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	
+    	<xsd:element name="cadastra">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="empresa" type="domainV1:Empresa"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="cadastraResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="empresa" type="domainV1:Empresa"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	
+    </xsd:schema>
+  </wsdl:types>
+  
+  
+  
+  
+  <wsdl:message name="verificaCadastroRequest">
+    <wsdl:part element="tns:verificaCadastro" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verificaCadastroResponse">
+    <wsdl:part element="tns:verificaCadastroResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verificaCadastroFault">
+  	<wsdl:part name="parameters" element="tns:verificaCadastroFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaCreditoRequest">
+  	<wsdl:part name="parameters" element="tns:verificaCredito"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaCreditoResponse">
+  	<wsdl:part name="parameters" element="tns:verificaCreditoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaCreditoFault">
+  	<wsdl:part name="parameters" element="tns:verificaCreditoFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rejeitaRequest">
+  	<wsdl:part name="parameters" element="tns:rejeita"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rejeitaEmpresaResponse">
+  	<wsdl:part name="parameters" element="tns:rejeitaEmpresaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="aprovaEmpresaRequest">
+  	<wsdl:part name="parameters" element="tns:aprovaEmpresa"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="aprovaEmpresaResponse">
+  	<wsdl:part name="parameters" element="tns:aprovaEmpresaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cadastraRequest">
+  	<wsdl:part name="parameters" element="tns:cadastra"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cadastraResponse">
+  	<wsdl:part name="parameters" element="tns:cadastraResponse"></wsdl:part>
+  </wsdl:message>
+  
+  
+  
+  
+  <wsdl:portType name="EmpresaService">
+  
+	<wsdl:operation name="verificaCadastro">
+		<wsdl:input message="tns:verificaCadastroRequest" />
+		<wsdl:output message="tns:verificaCadastroResponse" />
+		<wsdl:fault name="fault" message="tns:verificaCadastroFault"></wsdl:fault>
+	</wsdl:operation>
+
+	<wsdl:operation name="verificaCredito">
+		<wsdl:input message="tns:verificaCreditoRequest"></wsdl:input>
+		<wsdl:output message="tns:verificaCreditoResponse"></wsdl:output>
+		<wsdl:fault name="fault" message="tns:verificaCreditoFault"></wsdl:fault>
+	</wsdl:operation>
+        
+    <wsdl:operation name="rejeita">
+    	<wsdl:input message="tns:rejeitaRequest"></wsdl:input>
+    </wsdl:operation>
+    
+    <wsdl:operation name="aprovaEmpresa">
+    	<wsdl:input message="tns:aprovaEmpresaRequest"></wsdl:input>
+    </wsdl:operation>
+    
+    <wsdl:operation name="cadastra">
+    	<wsdl:input message="tns:cadastraRequest"></wsdl:input>
+    	<wsdl:output message="tns:cadastraResponse"></wsdl:output>
+    </wsdl:operation>
+    
+  </wsdl:portType>
+  
+  
+  
+  
+  
+  <wsdl:binding name="EmpresaServiceSOAP" type="tns:EmpresaService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="verificaCadastro">
+      <soap:operation soapAction="http://service.soaexpert.com.br/EmpresaService/service/v1.0/verificaCadastro"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+      <wsdl:operation name="verificaCredito">
+      <soap:operation soapAction="http://service.soaexpert.com.br/EmpresaService/service/v1.0/verificaCredito" />
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+     <wsdl:operation name="rejeita">
+      <soap:operation soapAction="http://service.soaexpert.com.br/EmpresaService/service/v1.0/rejeita" />
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    
+     <wsdl:operation name="aprovaEmpresa">
+      <soap:operation soapAction="http://service.soaexpert.com.br/EmpresaService/service/v1.0/aprovaEmpresa" />
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    
+    <wsdl:operation name="cadastra">
+      <soap:operation soapAction="http://service.soaexpert.com.br/EmpresaService/service/v1.0/cadastra" />
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+  </wsdl:binding>
+  
+  
+  
+  
+  <wsdl:service name="EmpresaService">
+    <wsdl:port binding="tns:EmpresaServiceSOAP" name="EmpresaServiceSOAP">
+      <soap:address location="http://localhost:7001/SoaExpertServices/EmpresaService"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+  
+  
+</wsdl:definitions>
